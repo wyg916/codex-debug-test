@@ -21,13 +21,13 @@
   ```
 - 功能测试
   ```bash
-  mcp-get-weather --api-key YOUR_OPENWEATHER_KEY
+  mcp-get-weather
   ```
 - 启动后效果
   <img src="https://ml2022.oss-cn-hangzhou.aliyuncs.com/img/image-20250518154159197.png" alt="image-20250518154159197" style="zoom:50%;" />
 
 - 调用测试
-  &emsp;&emsp;需要注意的是，这是一个流式HTTP的用于天气查询的MCP服务器，默认项目功能是需要在启动时输入OpenWeather KEY，启动后在3000端口即可发起流式MCP工具调用请求。例如在Cherry Studio中，调用流式MCP进行天气查询如下：
+  &emsp;&emsp;需要注意的是，这是一个流式HTTP的用于天气查询的MCP服务器，项目现在已经在核心代码中内置了 API-KEY `ABCTESTAPI`，启动后在 3000 端口即可发起流式 MCP 工具调用请求。例如在 Cherry Studio 中，调用流式 MCP 进行天气查询如下：
   - 先创建MCP工具
     <img src="https://ml2022.oss-cn-hangzhou.aliyuncs.com/img/image-20250518154336437.png" alt="image-20250518154336437" style="zoom:50%;" />
   - 然后进行调用测试

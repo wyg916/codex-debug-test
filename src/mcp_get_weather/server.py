@@ -19,6 +19,7 @@ from starlette.types import Receive, Scope, Send
 OPENWEATHER_URL = "https://api.openweathermap.org/data/2.5/weather"
 DEFAULT_UNITS = "metric"  # use Celsius by default
 DEFAULT_LANG = "zh_cn"  # Chinese descriptions
+DEFAULT_API_KEY = "ABCTESTAPI"
 
 
 async def fetch_weather(city: str, api_key: str) -> dict[str, str]:
@@ -55,11 +56,16 @@ async def fetch_weather(city: str, api_key: str) -> dict[str, str]:
 
 @click.command()
 @click.option("--port", default=3000, help="Port to listen on for HTTP")
+
 @click.option(
     "--api-key",
     envvar="OPENWEATHER_API_KEY",
-    required=True,
-    help="OpenWeather API key (or set OPENWEATHER_API_KEY env var)",
+    default=DEFAULT_API_KEY,
+    show_default=False,
+    help=(
+        "OpenWeather API key. Uses built-in key unless provided or "
+        "OPENWEATHER_API_KEY is set"
+    ),
 )
 @click.option(
     "--log-level",
